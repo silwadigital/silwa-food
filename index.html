@@ -428,3 +428,427 @@
 
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding - Gestão Estratégica iFood</title>
+    <style>
+        :root {
+            --ifood-red: #EA1D2C;
+            --ifood-red-dark: #C81422;
+            --ifood-red-light: #FEE8E9;
+            --dark-charcoal: #1F1F1F;
+            --slate-gray: #4A4A4A;
+            --light-bg: #F9FAFB;
+            --white: #FFFFFF;
+            --border-color: #E5E7EB;
+            --success-green: #22C55E;
+            --success-light: #DCFCE7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-charcoal);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 3px solid var(--ifood-red);
+            padding: 24px 5%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-area h1 {
+            font-size: 24px;
+            color: var(--ifood-red);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area p {
+            font-size: 14px;
+            color: var(--slate-gray);
+        }
+
+        .badge-sla {
+            background-color: var(--ifood-red-light);
+            color: var(--ifood-red);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .intro-section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .intro-section h2 {
+            margin-bottom: 10px;
+            color: var(--dark-charcoal);
+        }
+
+        /* Timeline / Process Flow */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 50px auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            background-color: var(--white);
+            border: 4px solid var(--ifood-red);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -9px; }
+
+        .content {
+            padding: 24px;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .content h3 {
+            color: var(--ifood-red);
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content .time-tag {
+            display: inline-block;
+            background-color: #F3F4F6;
+            color: var(--slate-gray);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .content ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+        .content ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        /* Templates Section */
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--dark-charcoal);
+            border-left: 5px solid var(--ifood-red);
+            padding-left: 12px;
+        }
+
+        .grid-templates {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .template-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+        }
+
+        .template-card h4 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--slate-gray);
+        }
+
+        .copy-box {
+            background-color: var(--light-bg);
+            border: 1px dashed #CBD5E1;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            position: relative;
+            color: #334155;
+        }
+
+        .btn-copy {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:hover {
+            background-color: var(--ifood-red-light);
+            color: var(--ifood-red);
+            border-color: var(--ifood-red);
+        }
+
+        /* Routine Section */
+        .routine-box {
+            background-color: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .routine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .routine-item {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--ifood-red);
+        }
+
+        .routine-item.weekly { border-left-color: var(--success-green); }
+
+        .routine-item h5 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--slate-gray);
+            font-size: 14px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--white);
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            .timeline-container::after { left: 22px; }
+            .right { left: 0%; }
+            .grid-templates, .routine-grid { grid-template-columns: 1fr; }
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <h1>🛑 Playbook de Onboarding</h1>
+                <p>Gestão Estratégica iFood</p>
+            </div>
+            <div class="badge-sla">⚡ Diagnóstico Relâmpago: 24h</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro-section">
+            <h2>Bem-vindo ao Fluxo Operacional</h2>
+            <p>Este layout mapeia com precisão a jornada do novo cliente desde o momento da assinatura do contrato até as rotinas contínuas de sucesso. Siga os prazos estabelecidos para garantir o máximo de retenção e alinhamento.</p>
+        </section>
+
+        <h3 class="section-title">O Funil de Onboarding</h3>
+
+        <section class="timeline">
+            <div class="timeline-container left">
+                <div class="content">
+                    <span class="time-tag">Dia 1 - Imediato</span>
+                    <h3>Fase 1: Setup & Boas-Vindas</h3>
+                    <ul>
+                        <li>Criação imediata do grupo oficial no WhatsApp.</li>
+                        <li>Envio da mensagem de boas-vindas padronizada.</li>
+                        <li>Coleta do Checklist de Acessos ou dados cadastrais.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-container right">
+                <div class="content">
+                    <span class="time-tag">Dia 2 - Prazo: 24h</span>
+                    <h3>Fase 2: Diagnóstico & Estratégia</h3>
+                    <ul>
+                        <li>Análise 360° da conta, mix de produtos e concorrência local.</li>
+                        <li>Montagem e envio do plano estratégico no grupo.</li>
+                        <li>Aguardar o "De Acordo" formal do cliente para prosseguir.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-container left">
+                <div class="content">
+                    <span class="time-tag">Dia 3 - Execução</span>
+                    <h3>Fase 3: Ativação Prática</h3>
+                    <ul>
+                        <li>Aplicação prática das estratégias validadas no Portal do Parceiro.</li>
+                        <li>Otimização de cardápio, engenharia de menu e campanhas de cupons.</li>
+                        <li>Início do rastreamento de dados para o ciclo mínimo de 7 dias.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-container right">
+                <div class="content">
+                    <span class="time-tag">Contínuo - Sucesso</span>
+                    <h3>Fase 4: Acompanhamento</h3>
+                    <ul>
+                        <li>Envio de relatórios em vídeo toda segunda-feira.</li>
+                        <li>Alinhamento estratégico mensal ao vivo (Call de alinhamento).</li>
+                        <li>Gestão ativa de expectativas e revisão de metas de faturamento.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <h3 class="section-title">Modelos de Mensagens Prontas (Copiar)</h3>
+        <section class="grid-templates">
+            <div class="template-card">
+                <h4>Script: Para Clientes que JÁ POSSUEM conta</h4>
+                <div class="copy-box">
+                    <button class="btn-copy" onclick="copyText('text1')">Copiar</button>
+                    <p id="text1">"Olá, <b>[Nome do Cliente]</b>, seja muito bem-vindo(a) à nossa gestão estratégica! 🚀 Este será o nosso canal oficial de comunicação diária.<br><br>Para darmos o pontapé inicial na análise da sua loja e estruturarmos as suas estratégias, precisamos dos seus acessos. Por favor, preencha este rápido checklist de acessos: <b>[Link do Formulário]</b>.<br><br>Assim que preencher, nossa equipe iniciará o diagnóstico do seu cardápio e segmento (prazo de 24h). Estamos animados!"</p>
+                </div>
+            </div>
+
+            <div class="template-card">
+                <h4>Script: Para Criação de Conta DO ZERO</h4>
+                <div class="copy-box">
+                    <button class="btn-copy" onclick="copyText('text2')">Copiar</button>
+                    <p id="text2">"Olá, <b>[Nome do Cliente]</b>, seja muito bem-vindo(a)! 🚀 Este grupo no WhatsApp será o nosso quartel-general.<br><br>Como vamos criar a sua operação no iFood do zero, precisamos de algumas informações burocráticas e comerciais para fazer o cadastro certinho. Por favor, preencha os dados necessários neste link: <b>[Link do Formulário]</b>.<br><br>Com esses dados em mãos, fazemos a criação da conta e já iniciamos o estudo de mercado para o seu produto em até 24 horas!"</p>
+                </div>
+            </div>
+        </section>
+
+        <h3 class="section-title">Régua de Comunicação e Relatórios</h3>
+        <section class="routine-box">
+            <div class="routine-grid">
+                <div class="routine-item weekly">
+                    <h5>📊 Toda Segunda-Feira</h5>
+                    <p><b>Relatório em Vídeo (Mínimo 7 dias):</b> Gravação de tela compacta (Loom/Vimeo) de 3 a 5 minutos direto no grupo de WhatsApp, pontuando vitórias da semana anterior e ajustes de rota.</p>
+                </div>
+                <div class="routine-item">
+                    <h5>📞 Início do Mês</h5>
+                    <p><b>Call ao Vivo de Alinhamento:</b> Reunião estratégica de até 45 minutos (Google Meet/Zoom) focada na análise profunda do mês anterior e validação do novo planejamento.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Processo de Onboarding Otimizado - Gestão Estratégica iFood.</p>
+    </footer>
+
+    <script>
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Texto copiado com sucesso!");
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
