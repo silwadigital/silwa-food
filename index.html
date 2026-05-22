@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação: 0 a 100k em 45 dias - Gestão de iFood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #EA1D2C; /* Vermelho iFood */
+            --primary-hover: #b81420;
+            --secondary: #0F172A; /* Slate 900 (Corporativo) */
+            --bg-main: #F8FAFC; /* Slate 50 */
+            --bg-card: #FFFFFF;
+            --text-main: #1E293B; /* Slate 800 */
+            --text-muted: #64748B; /* Slate 500 */
+            --border: #E2E8F0; /* Slate 200 */
+            --success: #10B981;
+            --warning: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            border-bottom: 5px solid var(--primary);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
+        }
+
+        header p {
+            color: #94A3B8;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        header .badge-meta {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .grid-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .metric-card h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-card p {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .metric-card p.highlight {
+            color: var(--primary);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .grid-team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-card h3 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .team-card .role-badge {
+            font-size: 0.75rem;
+            background: #E2E8F0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .team-card ul {
+            list-style: none;
+        }
+
+        .team-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .team-card ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .timeline-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 1rem 0 1rem 2rem;
+            border-left: 3px solid var(--primary);
+            position: relative;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            left: -10px;
+            top: 1.3rem;
+            background-color: var(--bg-card);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .timeline-owner {
+            font-size: 0.8rem;
+            background-color: #EEF2F6;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            .grid-two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .process-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .process-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            border-left: 4px solid var(--secondary);
+            padding-left: 0.5rem;
+        }
+
+        .legal-notice {
+            background-color: #FFFBEB;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #78350F;
+        }
+
+        .legal-notice strong {
+            color: #92400E;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Plano de Execução Estratégica</h1>
+        <p>Aceleração Comercial e Operacional: Gestão de iFood</p>
+        <div class="badge-meta">Meta: R$ 100.000 em Contratos (TCV) em 45 Dias</div>
+    </header>
+
+    <main>
+        <section class="grid-metrics">
+            <div class="metric-card">
+                <h3>Ticket Mensal</h3>
+                <p class="highlight">R$ 1.000,00</p>
+            </div>
+            <div class="metric-card">
+                <h3>Contrato Mínimo</h3>
+                <p>3 Meses (Fidelidade)</p>
+            </div>
+            <div class="metric-card">
+                <h3>Meta de Clientes</h3>
+                <p class="highlight">34 Ativos</p>
+            </div>
+            <div class="metric-card">
+                <h3>Valor Total Garantido</h3>
+                <p>R$ 102.000,00</p>
+            </div>
+        </section>
+
+        <h2> Matriz de Responsabilidade (3 Pessoas)</h2>
+        <section class="grid-team">
+            <div class="team-card">
+                <h3>Comercial & Marketing <span class="role-badge">O Caçador</span></h3>
+                <ul>
+                    <li>Mapeamento diário de leads ativos na plataforma iFood.</li>
+                    <li>Prospecção ativa (Outbound) via Instagram, WhatsApp e presencial.</li>
+                    <li>Agendamento e execução de reuniões de diagnóstico estratégico.</li>
+                    <li>Fechamento de propostas e passagens de bastão para o ADM.</li>
+                </ul>
+            </div>
+            <div class="team-card">
+                <h3>Operacional <span class="role-badge">O Estrategista</span></h3>
+                <ul>
+                    <li>Análise detalhada do funil de vendas do parceiro (Visitas vs Conversão).</li>
+                    <li>Engenharia de cardápio, precificação estratégica e fotos promocionais.</li>
+                    <li>Configuração de campanhas internas (Cupons, Lista VIP, Entrega Grátis).</li>
+                    <li>Emissão de relatórios de desempenho e reuniões de alinhamento.</li>
+                </ul>
+            </div>
+            <div class="team-card">
+                <h3>Adm / Jurídico <span class="role-badge">O Guardião</span></h3>
+                <ul>
+                    <li>Envio e controle de assinaturas de contratos digitais.</li>
+                    <li>Emissão de cobranças, links de pagamento e notas fiscais.</li>
+                    <li>Disparo e validação do formulário de Onboarding.</li>
+                    <li>Controle de inadimplência e renovações contratuais automáticas.</li>
+                </ul>
+            </div>
+        </section>
+
+        <h2> Fluxo Ponta a Ponta do Cliente (Pipeline)</h2>
+        <section class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">1. Atração & Prospecção Ativa</span>
+                        <span class="timeline-owner">Comercial</span>
+                    </div>
+                    <div class="timeline-desc">Busca ativa por restaurantes com nota inferior a 4.5 ou cardápios desalinhados. Abordagem via pitch rápido de diferenciação comercial.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">2. Diagnóstico & Alinhamento</span>
+                        <span class="timeline-owner">Comercial</span>
+                    </div>
+                    <div class="timeline-desc">Reunião de 15 minutos via Google Meet demonstrando as falhas visíveis do cardápio atual do lead e o potencial de faturamento oculto.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">3. Fechamento & Assinatura</span>
+                        <span class="timeline-owner">Comercial + Adm</span>
+                    </div>
+                    <div class="timeline-desc">Aceite da proposta. Envio imediato do contrato digital (ClickSign/D4Sign). Só há avanço operacional mediante assinatura.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">4. Checkout / Primeiro Pagamento</span>
+                        <span class="timeline-owner">Adm / Jurídico</span>
+                    </div>
+                    <div class="timeline-desc">Geração de cobrança via Asaas (Cartão ou Pix). O início do plano de 45 dias é condicionado à compensação do primeiro mês (Setup + Fee).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">5. Onboarding Operacional</span>
+                        <span class="timeline-owner">Adm + Operacional</span>
+                    </div>
+                    <div class="timeline-desc">Disparo do formulário estruturado para coleta de acessos ao Portal do Parceiro iFood, fotos em alta resolução e dados de cardápio.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">6. CSS (Customer Success - Retenção)</span>
+                        <span class="timeline-owner">Operacional</span>
+                    </div>
+                    <div class="timeline-desc">Otimizações semanais do ecossistema iFood do cliente. Envio de áudio/relatório executivo toda sexta-feira demonstrando evolução de métricas.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">7. Renovação ou Offboarding</span>
+                        <span class="timeline-owner">Adm / Jurídico</span>
+                    </div>
+                    <div class="timeline-desc">Janela de renovação automática após os 3 meses mínimos. Em caso de saída, o encerramento exige aviso prévio formalizado de 30 dias.</div>
+                </div>
+            </div>
+        </section>
+
+        <h2> Processos Críticos & Blindagem Contratual</h2>
+        <section class="grid-two-col">
+            <div class="process-box">
+                <h4>Estratégia de Vendas diária (Comercial)</h4>
+                <p>Para bater 34 clientes em 45 dias, a meta diária individual precisa ser inflexível:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1rem; font-size: 0.9rem; color: #475569;">
+                    <li>40 Novas prospecções frias por dia.</li>
+                    <li>Mínimo de 3 Reuniões agendadas/dia.</li>
+                    <li>Taxa de conversão estimada em 10% sobre reuniões realizadas.</li>
+                </ul>
+            </div>
+            <div class="process-box">
+                <h4>Cláusulas de Proteção Jurídica (Adm)</h4>
+                <p>Garantia de receita recorrente e blindagem contra desistências precoces:</p>
+                <div class="legal-notice">
+                    <strong>Fidelidade de 3 Meses:</strong> Rescisão antecipada prevê multa obrigatória de 50% do saldo restante do contrato.
+                </div>
+                <div class="legal-notice" style="background-color: #F0FDFA; border-left-color: var(--success); color: #115E59;">
+                    <strong>Gargalo de Acessos:</strong> A contagem dos 3 meses inicia na assinatura, independente da demora do cliente em enviar as senhas.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Plano de Operação Interna — Confidencial — Foco na Execução dos 45 Dias
+    </footer>
+
+</body>
+</html>
